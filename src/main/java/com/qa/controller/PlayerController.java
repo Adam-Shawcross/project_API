@@ -16,8 +16,23 @@ public class PlayerController {
     private PlayerRepository repository;
 
     @RequestMapping(value="players", method= RequestMethod.GET)
-  public List<Player> listAllNotes(){
+  public List<Player> listAllPlayers(){
         return repository.findAll();
     }
+    @RequestMapping(value="players", method = RequestMethod.POST)
+    public Player addPlayer(@RequestBody Player player){
+        return repository.saveAndFlush(player);
+    }
 
+    @RequestMapping(value ="players/{id}", method = RequestMethod.GET)
+    public Player getPlayer(@PathVariable Long id){
+        return repository.findOne(id);
+
+    }
+    @RequestMapping(value="players/{id}", method = RequestMethod.DELETE)
+    public Player deletePlayer(@PathVariable Long id){
+        Player existing = repository.findOne(id);
+        repository.delete(existing);
+        return existing;
+    }
 }
