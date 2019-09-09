@@ -6,6 +6,7 @@ import com.qa.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -35,5 +36,11 @@ public class PlayerController {
         repository.delete(existing);
         return existing;
     }
-    //get an update method
+    @Transactional
+    @RequestMapping(value="Players/{id}", method = RequestMethod.PUT)
+    public Player updatePlayer(@PathVariable long id, @RequestBody Player Player){
+        Player existing = repository.findOne(id);
+        existing.setPlayer(Player);
+        return existing;
+    }
 }
