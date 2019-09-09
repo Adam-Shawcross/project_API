@@ -1,4 +1,4 @@
-package com.qa.controller;
+package com.qa.models;
 
 
 import javax.persistence.Entity;
