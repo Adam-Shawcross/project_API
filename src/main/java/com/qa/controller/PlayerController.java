@@ -37,10 +37,10 @@ public class PlayerController {
         return existing;
     }
     @Transactional
-    @RequestMapping(value="Players/{id}", method = RequestMethod.PUT)
-    public Player updatePlayer(@PathVariable long id, @RequestBody Player Player){
+    @RequestMapping(value="players/{id}", method = RequestMethod.PUT)
+    public Player updatePlayer(@PathVariable long id, @RequestBody Player player){
         Player existing = repository.findOne(id);
-        existing.setPlayer(Player);
+        existing.setPlayer(player);
         return existing;
     }
 }

@@ -70,11 +70,11 @@ public class Player {
 
 
     public void setPlayer(Player player){
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.DOB = DOB;
-        this.earnings = earnings;
-        this.ranking = ranking;
+        this.lastName = player.lastName;
+        this.firstName = player.firstName;
+        this.DOB = player.DOB;
+        this.earnings = player.earnings;
+        this.ranking = player.ranking;
     }
 }
 
