@@ -1,22 +1,20 @@
 package com.qa.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="Players")
 public class Player {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    Long id;
-    String lastName;
-    String firstName;
-    String DOB;
-    Float earnings;
-    Long ranking;
+    private Long id;
+    private String lastName;
+    private String firstName;
+    private String DOB;
+    private Float earnings;
+    private Long ranking;
 
 
     public Player() {

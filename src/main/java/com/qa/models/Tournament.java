@@ -1,22 +1,20 @@
 package com.qa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
+@Table(name="Tournament")
 public class Tournament {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
 
-    Long id;
-    String name;
-    String location;
-    String venue;
-    String date;
+    private Long id;
+    private String name;
+    private String location;
+    private String venue;
+    private String date;
 
     public Tournament() {
         super();
