@@ -1,9 +1,9 @@
 package com.qa.controllers;
 
 
-import com.qa.controller.NotesController;
-import com.qa.models.Note;
-import com.qa.repository.NotesRepository;
+import com.qa.controller.PlayerController;
+import com.qa.models.Player;
+import com.qa.repository.PlayerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,88 +18,58 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class NotesControllerTest {
+@SpringBootTest (webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class PlayerControllerTest {
+
 
     @InjectMocks
-    private NotesController notesController;
+    private PlayerController playerController;
 
     @Mock
-    private NotesRepository repository;
+    private PlayerRepository repository;
 
 
     @Test
-    public void testGetAllNotes(){
-        List<Note> notesList = new ArrayList<>();
-        Note note = new Note();
-        note.setDescription("blah");
-        note.setName("Spanner");
-        notesList.add(note);
+    public void testGetAllPlayers() {
+        List<Player> playerList = new ArrayList<>();
+        Player player = new Player();
+        player.setAge(23L);
+        player.setLastName("Spanner");
+        player.setFirstName("David");
+        playerList.add(player);
 
-        when(repository.findAll()).thenReturn(notesList);
+        when(repository.findAll()).thenReturn(playerList);
 
         assertEquals(
-                notesController.listAllNotes().get(0).getName(), "Spanner"
+                playerController.listAllPlayers().get(0).getFirstName(), "David"
         );
-        // assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/notes", List.class)).contains("sup la");
 
     }
 
-
     @Test
-    public void testGetNote(){
+    public void testGetPlayer(){
 
-        List<Note> notesList = new ArrayList<>();
-        Note note = new Note();
-        note.setDescription("blah");
-        note.setName("Spanner");
-        notesList.add(note);
-        Note note1 = new Note();
-        note1.setDescription("blah");
-        note1.setName("davey");
-        notesList.add(note1);
+        List<Player> playersList = new ArrayList<>();
+        Player player = new Player();
+        player.setLastName("blah");
+        player.setFirstName("Spanner");
+        playersList.add(player);
+        Player player1 = new Player();
+        player1.setLastName("blah");
+        player1.setFirstName("davey");
+        playersList.add(player1);
 
-        when(repository.findOne(1l)).thenReturn(notesList.get(1));
+        when(repository.findOne(1L)).thenReturn(playersList.get(1));
 
         assertEquals(
-                notesController.getNote(1l).getName(), "davey");
+                playerController.getPlayer(1L).getFirstName(), "davey");
 
     }
 
-    @Test
-    public void testAddNote(){
-        List<Note> notesList = new ArrayList<>();
-        Note note = new Note();
-        note.setDescription("blah");
-        note.setName("dave");
-        notesList.add(note);
-
-        Note note1 = new Note();
-        note1.setDescription("blah");
-        note1.setName("Spanner");
 
 
-        when(repository.saveAndFlush(note1)).thenReturn(note1);
-        assertEquals(notesController.addNote(note1).getName(), "Spanner");
-    }
 
-    @Test
-    public void testDeleteNote(){
-        List<Note> notesList = new ArrayList<>();
-        Note note = new Note();
-        note.setDescription("blah");
-        note.setName("dave");
-        notesList.add(note);
 
-        when(repository.findOne(0l)).thenReturn(notesList.get(0));
-        assertEquals(
-                notesController.deleteNote(0l).getName(), "dave");
-    }
-//    @Test
-//    public void testGetOneNote(){
-//        Note note = new Note();                   difference in inidexs, as ive used a list index starts at 0, if i hadnt the index doesnt matter
-//        note.setName("blah");
-//        when(repository.findOne(1L)).thenReturn(note);
-//        assertEquals(notesController.getNote(1L).getName(), "blah" );
-//    }
+
+
 }

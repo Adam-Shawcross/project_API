@@ -20,6 +20,7 @@ public class Player {
     public Player() {
         super();
     }
+
     public Player(String lastName, String firstName, Long age, Float earnings, Long ranking) {
         this.lastName = lastName;
         this.firstName = firstName;
