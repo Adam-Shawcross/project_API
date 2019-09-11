@@ -14,7 +14,7 @@ public class Tournament {
     private String name;
     private String location;
     private String venue;
-    private String date;
+
 
     public Tournament() {
         super();
@@ -24,7 +24,7 @@ public class Tournament {
         this.name = name;
         this.location = location;
         this.venue = venue;
-        this.date = date;
+
     }
 
     public Long getId() {
@@ -59,19 +59,13 @@ public class Tournament {
         this.venue = venue;
     }
 
-    public String getDate() {
-        return date;
-    }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public void setTournament(Tournament tournament){
         this.name = tournament.name;
         this.location = tournament.location;
         this.venue = tournament.venue;
-        this.date = tournament.date;
+
     }
 }
 
