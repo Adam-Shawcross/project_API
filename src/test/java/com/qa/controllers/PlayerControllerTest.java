@@ -84,6 +84,19 @@ public class PlayerControllerTest {
         assertEquals(playerController.addPlayer(player1).getFirstName(), "Spanner");
     }
 
+    @Test
+    public void testDeletePlayer(){
+        List<Player> playersList = new ArrayList<>();
+        Player player = new Player();
+        player.setLastName("blah");
+        player.setFirstName("dave");
+        playersList.add(player);
+
+        when(repository.findOne(0L)).thenReturn(playersList.get(0));
+        assertEquals(
+                playerController.deletePlayer(0L).getFirstName(), "dave");
+    }
+
 
 
 
