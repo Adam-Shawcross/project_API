@@ -12,7 +12,7 @@ public class Player {
     private Long id;
     private String lastName;
     private String firstName;
-    private String DOB;
+    private Long age;
     private Float earnings;
     private Long ranking;
 
@@ -20,12 +20,20 @@ public class Player {
     public Player() {
         super();
     }
-    public Player(String lastName, String firstName, String DOB, Float earnings, Long ranking) {
+    public Player(String lastName, String firstName, Long age, Float earnings, Long ranking) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.DOB = DOB;
+        this.age = age;
         this.earnings = earnings;
         this.ranking = ranking;
+    }
+
+    public Long getAge() {
+        return age;
+    }
+
+    public void setAge(Long age) {
+        this.age = age;
     }
 
     public Long getId() {
@@ -72,7 +80,7 @@ public class Player {
     public void setPlayer(Player player){
         this.lastName = player.lastName;
         this.firstName = player.firstName;
-        this.DOB = player.DOB;
+        this.age = player.age;
         this.earnings = player.earnings;
         this.ranking = player.ranking;
     }
