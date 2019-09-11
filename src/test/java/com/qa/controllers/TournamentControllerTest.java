@@ -71,6 +71,8 @@ public class TournamentControllerTest {
         Tournament tournament = new Tournament();
         tournament.setLocation("blah");
         tournament.setVenue("home");
+        tournament.setName("worlds");
+        tournament.setId(0L);
         tournamentsList.add(tournament);
 
         Tournament tournament1 = new Tournament();

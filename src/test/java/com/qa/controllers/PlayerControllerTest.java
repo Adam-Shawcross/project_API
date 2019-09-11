@@ -34,6 +34,9 @@ public class PlayerControllerTest {
         List<Player> playerList = new ArrayList<>();
         Player player = new Player();
         player.setAge(23L);
+        player.setId(5L);
+        player.setEarnings(35F);
+        player.setRanking(7L);
         player.setLastName("Spanner");
         player.setFirstName("David");
         playerList.add(player);
@@ -62,7 +65,7 @@ public class PlayerControllerTest {
         when(repository.findOne(1L)).thenReturn(playersList.get(1));
 
         assertEquals(
-                playerController.getPlayer(1L).getFirstName(), "davey");
+                playerController.getPlayer(1L).getLastName(), "blah");
 
     }
 
@@ -78,10 +81,12 @@ public class PlayerControllerTest {
         Player player1 = new Player();
         player1.setLastName("blah");
         player1.setFirstName("Spanner");
+        player1.setAge(10L);
+        player1.setEarnings(10F);
 
 
         when(repository.saveAndFlush(player1)).thenReturn(player1);
-        assertEquals(playerController.addPlayer(player1).getFirstName(), "Spanner");
+        assertEquals(Long.valueOf(playerController.addPlayer(player1).getAge()),Long.valueOf(10L));
     }
 
     @Test
