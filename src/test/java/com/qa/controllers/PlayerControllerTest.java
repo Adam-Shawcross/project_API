@@ -67,7 +67,22 @@ public class PlayerControllerTest {
     }
 
 
+    @Test
+    public void testAddPlayer(){
+        List<Player> playersList = new ArrayList<>();
+        Player player = new Player();
+        player.setLastName("blah");
+        player.setFirstName("dave");
+        playersList.add(player);
 
+        Player player1 = new Player();
+        player1.setLastName("blah");
+        player1.setFirstName("Spanner");
+
+
+        when(repository.saveAndFlush(player1)).thenReturn(player1);
+        assertEquals(playerController.addPlayer(player1).getFirstName(), "Spanner");
+    }
 
 
 
