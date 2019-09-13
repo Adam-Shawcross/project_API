@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="Tournament")
+@Table(name = "Tournament")
 public class Tournament {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
     private String name;
@@ -60,8 +60,7 @@ public class Tournament {
     }
 
 
-
-    public void setTournament(Tournament tournament){
+    public void setTournament(Tournament tournament) {
         this.name = tournament.name;
         this.location = tournament.location;
         this.venue = tournament.venue;

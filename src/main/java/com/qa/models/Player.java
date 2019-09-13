@@ -4,11 +4,11 @@ package com.qa.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Players")
+@Table(name = "Players")
 public class Player {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String lastName;
     private String firstName;
@@ -78,7 +78,7 @@ public class Player {
     }
 
 
-    public void setPlayer(Player player){
+    public void setPlayer(Player player) {
         this.lastName = player.lastName;
         this.firstName = player.firstName;
         this.age = player.age;

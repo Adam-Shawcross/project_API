@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest (webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PlayerControllerTest {
 
 
@@ -50,7 +50,7 @@ public class PlayerControllerTest {
     }
 
     @Test
-    public void testGetPlayer(){
+    public void testGetPlayer() {
 
         List<Player> playersList = new ArrayList<>();
         Player player = new Player();
@@ -71,7 +71,7 @@ public class PlayerControllerTest {
 
 
     @Test
-    public void testAddPlayer(){
+    public void testAddPlayer() {
         List<Player> playersList = new ArrayList<>();
         Player player = new Player();
         player.setLastName("blah");
@@ -86,11 +86,11 @@ public class PlayerControllerTest {
 
 
         when(repository.saveAndFlush(player1)).thenReturn(player1);
-        assertEquals(Long.valueOf(playerController.addPlayer(player1).getAge()),Long.valueOf(10L));
+        assertEquals(Long.valueOf(playerController.addPlayer(player1).getAge()), Long.valueOf(10L));
     }
 
     @Test
-    public void testDeletePlayer(){
+    public void testDeletePlayer() {
         List<Player> playersList = new ArrayList<>();
         Player player = new Player();
         player.setLastName("blah");
@@ -101,8 +101,6 @@ public class PlayerControllerTest {
         assertEquals(
                 playerController.deletePlayer(0L).getFirstName(), "dave");
     }
-
-
 
 
 }

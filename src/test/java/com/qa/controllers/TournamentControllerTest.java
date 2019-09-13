@@ -45,7 +45,7 @@ public class TournamentControllerTest {
     }
 
     @Test
-    public void testGetTournament(){
+    public void testGetTournament() {
 
         List<Tournament> tournamentsList = new ArrayList<>();
         Tournament tournament = new Tournament();
@@ -66,7 +66,7 @@ public class TournamentControllerTest {
 
 
     @Test
-    public void testAddTournament(){
+    public void testAddTournament() {
         List<Tournament> tournamentsList = new ArrayList<>();
         Tournament tournament = new Tournament();
         tournament.setLocation("blah");
@@ -85,7 +85,7 @@ public class TournamentControllerTest {
     }
 
     @Test
-    public void testDeleteTournament(){
+    public void testDeleteTournament() {
         List<Tournament> tournamentsList = new ArrayList<>();
         Tournament tournament = new Tournament();
         tournament.setLocation("blah");
@@ -96,7 +96,6 @@ public class TournamentControllerTest {
         assertEquals(
                 tournamentController.deleteTournament(0L).getVenue(), "home");
     }
-
 
 
 }
