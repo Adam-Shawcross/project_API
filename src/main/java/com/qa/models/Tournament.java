@@ -20,7 +20,7 @@ public class Tournament {
         super();
     }
 
-    public Tournament(String name, String location, String venue, String date) {
+    public Tournament(String name, String location, String venue) {
         this.name = name;
         this.location = location;
         this.venue = venue;

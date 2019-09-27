@@ -46,6 +46,15 @@ public class PlayerControllerTest {
         assertEquals(
                 playerController.listAllPlayers().get(0).getFirstName(), "David"
         );
+        assertEquals(
+                Long.toString(playerController.listAllPlayers().get(0).getRanking()), Long.toString(7L)
+        );
+        assertEquals(
+                Float.toString(playerController.listAllPlayers().get(0).getEarnings()), Float.toString(35F)
+        );
+        assertEquals(
+                Long.toString(playerController.listAllPlayers().get(0).getId()), Long.toString(5L)
+        );
 
     }
 
@@ -53,9 +62,7 @@ public class PlayerControllerTest {
     public void testGetPlayer() {
 
         List<Player> playersList = new ArrayList<>();
-        Player player = new Player();
-        player.setLastName("blah");
-        player.setFirstName("Spanner");
+        Player player = new Player("blah","Spanner", 40l, 30F, 21l);
         playersList.add(player);
         Player player1 = new Player();
         player1.setLastName("blah");

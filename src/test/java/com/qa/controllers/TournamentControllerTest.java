@@ -31,6 +31,7 @@ public class TournamentControllerTest {
     public void testGetAllTournaments() {
         List<Tournament> tournamentList = new ArrayList<>();
         Tournament tournament = new Tournament();
+        tournament.setId(1L);
         tournament.setName("Worlds");
         tournament.setLocation("Sheffield");
         tournament.setVenue("Ally Pally");
@@ -42,15 +43,17 @@ public class TournamentControllerTest {
                 tournamentController.listAllTournaments().get(0).getVenue(), "Ally Pally"
         );
 
+        assertEquals(
+                Long.toString(tournamentController.listAllTournaments().get(0).getId()), Integer.toString(1)
+        );
+
     }
 
     @Test
     public void testGetTournament() {
 
         List<Tournament> tournamentsList = new ArrayList<>();
-        Tournament tournament = new Tournament();
-        tournament.setLocation("blah");
-        tournament.setVenue("Garage");
+        Tournament tournament = new Tournament("tourney1","blah","Garage");
         tournamentsList.add(tournament);
         Tournament tournament1 = new Tournament();
         tournament1.setLocation("blah");
@@ -78,10 +81,11 @@ public class TournamentControllerTest {
         Tournament tournament1 = new Tournament();
         tournament1.setLocation("blah");
         tournament1.setVenue("home");
+        tournament1.setName("Masters");
 
 
         when(repository.saveAndFlush(tournament1)).thenReturn(tournament1);
-        assertEquals(tournamentController.addTournament(tournament1).getVenue(), "home");
+        assertEquals(tournamentController.addTournament(tournament1).getName(), "Masters");
     }
 
     @Test
@@ -94,7 +98,7 @@ public class TournamentControllerTest {
 
         when(repository.findOne(0L)).thenReturn(tournamentsList.get(0));
         assertEquals(
-                tournamentController.deleteTournament(0L).getVenue(), "home");
+                tournamentController.deleteTournament(0L).getLocation(), "blah");
     }
 
 
